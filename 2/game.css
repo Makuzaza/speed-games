@@ -5,13 +5,20 @@
 }
   
 body {
-    background: rgb(250, 197, 192);
-    background: linear-gradient(180deg, #c1ddaf 0%, #28d442 50%, #27c1af 50%, #c9eae6 100%);
+    background: linear-gradient(#e66465, #9198e5);
     background-repeat: no-repeat;
     font-family: "Oswald", cursive;
     color: #333;
 }
-  
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
 h1 {
     font-family: "Oswald", cursive;
     font-size: 3rem;
@@ -26,16 +33,10 @@ button {
     color: inherit;
 }
   
-main {
+.circles {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-  
-.press_buttons {
-    display: flex;
     gap: 2rem;
     width: max-content;
     padding: 1rem;
@@ -43,13 +44,15 @@ main {
     border-radius: 15px;
 }
   
-.press_button {
-    flex-shrink: 0;
-    width: 140px;
-    height: 140px;
+.circle {
+    width: 100px;
+    height: 100px;
     background: #fff;
     border-radius: 50%;
     box-shadow: 2px 2px 0 #8e2929;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
   
 .button {
