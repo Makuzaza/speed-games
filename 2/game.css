@@ -53,6 +53,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
 }
   
 .button {
@@ -63,4 +64,9 @@ button {
     border-radius: 20px;
     box-shadow: 1px 2px 0 #8e2929;
     font-size: 20px;
+}
+
+.circle.active {
+    background-image: url('https://images.unsplash.com/photo-1529034502960-57f42a966080');
+    background-size: cover;
 }
