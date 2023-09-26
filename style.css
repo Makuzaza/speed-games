@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    background: rgb(250, 197, 192);
+    background: linear-gradient(180deg, #c1ddaf 0%, #28d442 50%, #27c1af 50%, #c9eae6 100%);
+    background-repeat: no-repeat;
+    font-family: "Oswald", cursive;
+    color: #333;
+}
+  
+h1 {
+    font-family: "Oswald", cursive;
+    font-size: 3rem;
+    color: #5a0707;
+    text-shadow: 2px 2px #fff;
+}
+  
+button {
+    border: none;
+    background: none;
+    font-family: "Oswald", sans-serif;
+    color: inherit;
+}
+  
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+  
+.press_buttons {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    padding: 1rem;
+    border: 4px dotted #fff;
+    border-radius: 15px;
+}
+  
+.press_button {
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 2px 2px 0 #8e2929;
+}
+  
+.button {
+    width: 200px;
+    margin: 20px;
+    padding: 0.5rem 1rem;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 1px 2px 0 #8e2929;
+    font-size: 20px;
+}
