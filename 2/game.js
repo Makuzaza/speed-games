@@ -8,8 +8,12 @@ const gameOverMessage = document.querySelector('#gameOverMessage');
 const finalScoreDisplay = document.querySelector('#finalScore');
 const messageForScoreDisplay = document.querySelector('#messageForScore');
 
-let soundBlaster = new Audio('blaster.mp3');
+let soundEat = new Audio('eating.mp3');
+soundEat.volume = 0.5;
 let soundEnd = new Audio('sound.mp3');
+soundEnd.volume = 0.5;
+let soundSteps = new Audio('footsteps.mp3');
+soundSteps
 
 let score = 0;
 let timer;
@@ -41,10 +45,10 @@ const disableEvents = () => {
 // count iterations of clicks, if click !== active button 
 
 clickPlay = () => {
-    if (soundBlaster.paused) {
-        soundBlaster.play();
+    if (soundEat.paused) {
+        soundEat.play();
     } else {
-        soundBlaster.currentTime = 0;
+        soundEat.currentTime = 0;
     }
 };
 
@@ -76,6 +80,7 @@ const changeButton = () => {
 };
 
 const startGame = () => {
+    soundSteps.play();
     // startButton.classList.toggle("hidden");
     // endButton.classList.toggle("hidden");
 
@@ -139,7 +144,7 @@ const updateGameOverMessage = (score) => {
 
 const showModal = () => {
     overlay.classList.add('visible');
-    soundBlaster.pause();
+    soundEat.pause();
     soundEnd.play();
 }
 
@@ -154,6 +159,7 @@ const endGame = () => {
     clearTimeout(timer);
     updateGameOverMessage(score);
     showModal();
+    soundSteps.pause();
     // resetGame();
 }
 
