@@ -4,7 +4,7 @@ const circles = document.querySelectorAll('.circle');
 const scoreDisplay = document.querySelector('.score')
 const overlay = document.querySelector('.overlay');
 const closeButton = document.querySelector('.close');
-const gameOverMessageContainer = document.querySelector('#gameOverMessageContainer');
+const gameOverMessage = document.querySelector('#gameOverMessage');
 const finalScoreDisplay = document.querySelector('#finalScore');
 
 
@@ -29,6 +29,12 @@ const enableEvents = () => {
     })
 }
 
+const disableEvents = () => {
+    circles.forEach(circle => {
+        circle.style.pointerEvents = "none";
+    });
+}
+
 // count iterations of clicks, if click !== active button 
 
 const clickCircle = (i) => {
@@ -47,16 +53,20 @@ circles.forEach((circle, i) => {
 
 // the function sets the correct button visibility
 const changeButton = () => {
-    if (gameRun) {
+ /*    if (gameRun) {
         startButton.style.display = 'none';
         endButton.style.display = 'block';
     } else {
         startButton.style.display = 'block';
         endButton.style.display = 'none';
-    }
+    } */
+    
 };
 
 const startGame = () => {
+    startButton.classList.toggle("hidden");
+    endButton.classList.toggle("hidden");
+
     if (rounds >= 3) {
         return endGame();
     }
@@ -86,16 +96,26 @@ const startGame = () => {
     console.log(newActive);
 }
 
+// const resetGame = () => {
+//     enableEvents();
+//     gameRun = false;
+//     updateButtonVisibility();
+//     clearTimeout(timer);
+//     score = 0;
+//     rounds = 0;
+//     pace = 1000;
+//     active = 0;
+//     scoreDisplay.textContent = score;
+//     gameOverMessage.style.display = 'none';
+// };
 const resetGame = () => {
     window.location.reload();
 }
 
-changeButton();
-
-
 const updateGameOverMessage = (score) => {
     finalScoreDisplay.textContent = score;
-    showModal(); // Show the modal with the game over message and final score
+    gameOverMessage.style.display = 'block';
+    showModal();
 }
 
 const showModal = () => {
@@ -105,22 +125,25 @@ const showModal = () => {
 const hideModal = () => {
     overlay.classList.remove('visible');
 };
-
-
 const endGame = () => {
     console.log('game ended');
     gameRun = false;
     changeButton();
+    disableEvents();
     clearTimeout(timer);
     updateGameOverMessage(score);
     showModal();
-    resetGame;
-};
+    // resetGame();
+}
 
 startButton.addEventListener('click', startGame);
 endButton.addEventListener('click', endGame);
-closeButton.addEventListener('click', hideModal);
+// closeButton.addEventListener('click', () => {
+//     hideModal();
+//     enableEvents();
+// });
 
+closeButton.addEventListener('click', resetGame);
 
 
 

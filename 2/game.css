@@ -5,10 +5,17 @@
 }
   
 body {
-    background: linear-gradient(#e66465, #9198e5);
-    background-repeat: no-repeat;
+    min-height:100%;
+    background: linear-gradient(
+    rgb(241, 249, 120), 
+    rgb(129, 243, 245), 
+    rgb(241, 249, 120)) 0 0/100% 200%;
+    animation: a 3s linear infinite;   
     font-family: "Oswald", cursive;
-    color: #333;
+  }
+  
+@keyframes a {
+    to {background-position:0 -200%}
 }
 
 main {
@@ -69,4 +76,39 @@ button {
 .circle.active {
     background-image: url('https://images.unsplash.com/photo-1529034502960-57f42a966080');
     background-size: cover;
+}
+
+.overlay {
+    background-color: #5f5e5edd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.overlay.visible {
+    display: flex;
+}
+
+.modal {
+    background-color: white;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 5px;
+    max-width: 600px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.hidden {
+    display: none;
 }
