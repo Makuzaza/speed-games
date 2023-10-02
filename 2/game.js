@@ -6,7 +6,10 @@ const overlay = document.querySelector('.overlay');
 const closeButton = document.querySelector('.close');
 const gameOverMessage = document.querySelector('#gameOverMessage');
 const finalScoreDisplay = document.querySelector('#finalScore');
+const messageForScoreDisplay = document.querySelector('#messageForScore');
 
+let soundBlaster = new Audio('blaster.mp3');
+let soundEnd = new Audio('sound.mp3');
 
 let score = 0;
 let timer;
@@ -37,7 +40,17 @@ const disableEvents = () => {
 
 // count iterations of clicks, if click !== active button 
 
+clickPlay = () => {
+    if (soundBlaster.paused) {
+        soundBlaster.play();
+    } else {
+        soundBlaster.currentTime = 0;
+    }
+};
+
 const clickCircle = (i) => {
+    clickPlay();
+
     if (i !== active) {
         return endGame();
     }
@@ -53,19 +66,18 @@ circles.forEach((circle, i) => {
 
 // the function sets the correct button visibility
 const changeButton = () => {
- /*    if (gameRun) {
+    if (gameRun) {
         startButton.style.display = 'none';
         endButton.style.display = 'block';
     } else {
         startButton.style.display = 'block';
         endButton.style.display = 'none';
-    } */
-    
+    }
 };
 
 const startGame = () => {
-    startButton.classList.toggle("hidden");
-    endButton.classList.toggle("hidden");
+    // startButton.classList.toggle("hidden");
+    // endButton.classList.toggle("hidden");
 
     if (rounds >= 3) {
         return endGame();
@@ -114,12 +126,21 @@ const resetGame = () => {
 
 const updateGameOverMessage = (score) => {
     finalScoreDisplay.textContent = score;
+    if (score == 0) {
+        messageForScoreDisplay.textContent = 'Ha-ha, looser!';
+    } else if (score > 0 && score < 100) {
+        messageForScoreDisplay.textContent = 'Ok, better! Try again!';
+    } else if (score >= 100) {
+        messageForScoreDisplay.textContent = 'You are master!';
+    }
     gameOverMessage.style.display = 'block';
     showModal();
 }
 
 const showModal = () => {
     overlay.classList.add('visible');
+    soundBlaster.pause();
+    soundEnd.play();
 }
 
 const hideModal = () => {
