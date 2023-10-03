@@ -136,7 +136,7 @@ const updateGameOverMessage = (score) => {
     } else if (score > 0 && score < 100) {
         messageForScoreDisplay.textContent = 'Ok, better! Try again!';
     } else if (score >= 100) {
-        messageForScoreDisplay.textContent = 'You are master!';
+        messageForScoreDisplay.textContent = 'You are a master!';
     }
     gameOverMessage.style.display = 'block';
     showModal();

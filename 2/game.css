@@ -7,7 +7,6 @@
   
 body {
     min-height:100%;
-   
     background: linear-gradient(
     rgb(241, 249, 120), 
     rgb(129, 243, 245), 
@@ -20,8 +19,6 @@ main {
     background-image: url('forest.png');
     background-repeat: no-repeat;
     background-position: bottom; 
-
-   
 }
   
 @keyframes a {
@@ -37,19 +34,39 @@ main {
 }
 
 h1 {
-    font-family: "Oswald", cursive;
-    font-size: 3rem;
-    color: #5a0707;
+    font-family: "Luckiest Guy", sans-serif;
+    font-size: 4rem;
+    color: #d74a23;
     text-shadow: 2px 2px #fff;
+    text-align: center;
+}
+
+.bear {
+    font-size: 6rem;
+    color: #5a0707;
 }
   
 button {
     border: none;
     background: none;
-    font-family: "Oswald", sans-serif;
-    color: inherit;
+    font-family: "Luckiest Guy", sans-serif;
+    height: 40px;
+}
+
+button:hover {
+    background-color: #e5bfb4;
 }
   
+.button {
+    width: 200px;
+    margin: 20px;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 1px 2px 0 #8e2929;
+    font-size: 20px;
+}
+
 .circles {
     display: flex;
     flex-wrap: wrap;
@@ -60,7 +77,7 @@ button {
     border: 4px dotted #fff;
     border-radius: 15px;
 }
-  
+
 .circle {
     width: 100px;
     height: 100px;
@@ -71,16 +88,6 @@ button {
     justify-content: center;
     align-items: center;
     pointer-events: none;
-}
-  
-.button {
-    width: 200px;
-    margin: 20px;
-    padding: 0.5rem 1rem;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 1px 2px 0 #8e2929;
-    font-size: 20px;
 }
 
 .circle.active {
@@ -104,15 +111,6 @@ button {
     display: flex;
 }
 
-.modal {
-    background-color: white;
-    margin: 2rem;
-    padding: 1rem;
-    border-radius: 5px;
-    max-width: 600px;
-    position: relative;
-}
-
 .close {
     position: absolute;
     top: 1rem;
@@ -127,11 +125,60 @@ button {
     display: none;
 }
 
-@media (max-width:500px) {
+.modal {
+    font-family: "Luckiest Guy", sans-serif;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 500px; 
+    height: 300px; 
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#gameOverMessage {
+    flex: 1;
+    padding: 20px 0 20px 20px;
+}
+
+#gameOverMessage h2 {
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+#gameOverMessage p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.image {
+    flex: 1;
+    background-image: url("bear.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (max-width:550px) {
     .circles {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 2rem;
     }
+    .modal {
+        background-image: url("bear.jpg");
+         border-radius: 5px;
+         width: 300px;
+         height: 300px;
+         position: relative;
+     }
 }
+
+
+
 
