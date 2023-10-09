@@ -4,6 +4,11 @@
     box-sizing: border-box;
 
 }
+
+html {
+    cursor: url("paw.png"), auto;
+
+}
   
 body {
     min-height:100%;
@@ -46,25 +51,27 @@ h1 {
     color: #5a0707;
 }
   
-button {
+/* button {
     border: none;
     background: none;
     font-family: "Luckiest Guy", sans-serif;
-    height: 40px;
-}
+} */
 
 button:hover {
-    background-color: #e5bfb4;
+    background-color: #f2c4d6;
 }
   
 .button {
-    width: 200px;
-    margin: 20px;
-    padding: 1rem;
+    font-family: "Luckiest Guy", sans-serif;
+    width: 250px;
+    margin: 30px;
+    padding: 2rem 0 1rem 0;
     background: #fff;
+    border: none;
     border-radius: 20px;
-    box-shadow: 1px 2px 0 #8e2929;
-    font-size: 20px;
+    box-shadow: 2px 2px 0 #8e2929;
+    font-size: 30px;
+    cursor: url("paw.png"), auto;
 }
 
 .circles {
@@ -88,6 +95,11 @@ button:hover {
     justify-content: center;
     align-items: center;
     pointer-events: none;
+    transition: all 0.1s;
+}
+
+.circle:hover {
+     box-shadow: 0 0 10px 5px beige;
 }
 
 .circle.active {
@@ -115,10 +127,11 @@ button:hover {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    padding: 1rem;
 }
 
 .close:hover {
-    background-color: #aba0a0;
+    background-color: #ffffff;
 }
 
 .hidden {
@@ -137,18 +150,19 @@ button:hover {
 }
 
 #gameOverMessage {
+    font-size: 24px;
     flex: 1;
     padding: 20px 0 20px 20px;
 }
 
 #gameOverMessage h2 {
-    font-size: 24px;
+    font-size: 18px;
     margin-top: 30px;
     margin-bottom: 40px;
 }
 
 #gameOverMessage p {
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 40px;
 }
 
@@ -171,6 +185,7 @@ button:hover {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 2rem;
     }
+    
     .modal {
         background-image: url("bear.jpg");
          border-radius: 5px;

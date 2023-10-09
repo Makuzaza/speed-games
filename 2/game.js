@@ -131,12 +131,12 @@ const resetGame = () => {
 
 const updateGameOverMessage = (score) => {
     finalScoreDisplay.textContent = score;
-    if (score == 0) {
-        messageForScoreDisplay.textContent = 'Ha-ha, looser!';
-    } else if (score > 0 && score < 100) {
-        messageForScoreDisplay.textContent = 'Ok, better! Try again!';
+    if (score >= 0 && score <= 50) {
+        messageForScoreDisplay.innerHTML = 'You are still hungry!(</br> Try again';
+    } else if (score > 50 && score < 100) {
+        messageForScoreDisplay.innerHTML = 'Ok, better!</br> There are still a lot of berries in the forest!';
     } else if (score >= 100) {
-        messageForScoreDisplay.textContent = 'You are a master!';
+        messageForScoreDisplay.innerHTML = 'You are a master!</br> Time for winter sleeping!';
     }
     gameOverMessage.style.display = 'block';
     showModal();
@@ -171,7 +171,3 @@ endButton.addEventListener('click', endGame);
 // });
 
 closeButton.addEventListener('click', resetGame);
-
-
-
-
