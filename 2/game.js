@@ -13,11 +13,11 @@ soundEat.volume = 0.5;
 let soundEnd = new Audio('sound.mp3');
 soundEnd.volume = 0.5;
 let soundSteps = new Audio('footsteps.mp3');
-soundSteps
+soundSteps.volume = 0.5;
 
 let score = 0;
 let timer;
-let pace = 1000;
+let pace = 1100;
 let active = 0;
 let rounds = 0;
 let gameRun = false;
@@ -113,18 +113,6 @@ const startGame = () => {
     console.log(newActive);
 }
 
-// const resetGame = () => {
-//     enableEvents();
-//     gameRun = false;
-//     updateButtonVisibility();
-//     clearTimeout(timer);
-//     score = 0;
-//     rounds = 0;
-//     pace = 1000;
-//     active = 0;
-//     scoreDisplay.textContent = score;
-//     gameOverMessage.style.display = 'none';
-// };
 const resetGame = () => {
     window.location.reload();
 }
@@ -151,6 +139,7 @@ const showModal = () => {
 const hideModal = () => {
     overlay.classList.remove('visible');
 };
+
 const endGame = () => {
     console.log('game ended');
     gameRun = false;
